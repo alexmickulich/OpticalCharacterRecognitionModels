@@ -22,8 +22,6 @@ def get_image():
 		image_encoded = image_b64.split(',')[1]
 		image = base64.decodebytes(image_encoded.encode('utf-8'))		
 		save = model.save_image(drawn_digit, image)
-		download_image
-		download_image(self)
 	return save
 
 if __name__ == '__main__':

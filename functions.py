@@ -30,15 +30,3 @@ class Model(object):
 		print('Done')
 
 		return ('Image saved successfully with the name {0}'.format(filename))
-
-	def download_image(self):
-		s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
-		for obj in s3.list_objects(Bucket=BUCKET)['Contents']:
-			filename = obj['Key']
-			if 'digit' in filename:
-				# The local directory must exist.
-				localfilename = os.path.join('my_images/', filename)
-				s3.download_file(BUCKET, filename, localfilename)
-				return ('Images download successfuly')
-			else:
-				pass
