@@ -163,7 +163,7 @@ class Model(object):
 		answer = str(top_3[0][0])
 		top_3_original = top_3
 		top_3_cnn = top_3
-		top_3_cnn_original = cnn_original.predict(img_array, weights='original')
+		top_3_cnn_original = top_3
 
 		answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original = self.select_answer( top_3, top_3_original, top_3_cnn, top_3_cnn_original)
 		answers_dict = {'answer': str(answer), 'fnn_t': top_3, 'fnn': top_3_original, 'cnn_t': top_3_cnn, 'cnn': top_3_cnn_original}
