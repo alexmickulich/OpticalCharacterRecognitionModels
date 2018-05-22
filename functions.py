@@ -152,7 +152,7 @@ class Model(object):
 
 			net_original = FNN(self.params_original)
 
-			top_3 = net_original.predict(img_array, weights='original')
+			top_3 = net_original.predict(img_array)
 			answer = top_3[0][0]
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
