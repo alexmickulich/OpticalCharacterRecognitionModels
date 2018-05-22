@@ -150,9 +150,9 @@ class Model(object):
 		if img_array is None:
 			return "Can't predict, when nothing is drawn"
 
-			cnn_original = CNN()
+			net_original = FNN(self.params_original)
 
-			top_3_cnn_original = cnn_original.predict(img_array, weights='original')
+			top_3_cnn_original = net_original.predict(img_array, weights='original')
 
 		return {'answer': top_3_cnn_original, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
