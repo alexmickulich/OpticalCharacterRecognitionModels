@@ -117,9 +117,9 @@ class FNN(object):
 		  the elements of X. For all i, y_pred[i] = c means that X[i] is predicted
 		  to have class c, where 0 <= c < C.
 		"""
-		l1 = X.dot(self.params_original['W1']) + self.params_original['b1']
+		l1 = X.dot(self.params['W1']) + self.params['b1']
 		l1[l1 < 0] = 0
-		l2 = l1.dot(self.params_original['W2']) + self.params_original['b2']
+		l2 = l1.dot(self.params['W2']) + self.params['b2']
 		exp_scores = np.exp(l2)
 		probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
 		y_pred = np.argmax(probs, axis=1)
