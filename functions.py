@@ -151,9 +151,9 @@ class Model(object):
 			return "Can't predict, when nothing is drawn"
 
 			net_original = FNN(self.params_original)
-
+			answer = ''
 			top_3 = net_original.predict(img_array)
-			answer = top_3[0][0]
+			answer = str(top_3[0][0])
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
