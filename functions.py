@@ -158,7 +158,7 @@ class Model(object):
 			y_pred = np.argmax(exp_scores)
 			top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
 
-		answer = select_answer(top_3)
+		answer = self.select_answer(top_3)
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
