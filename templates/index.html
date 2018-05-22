@@ -23,12 +23,7 @@
 </head>
 
 <body>
-	<div class="container" style="font-size: 15px;"> 
-		<span>Topic: <b>Handwriting recognition </b> </span> <br>
-		<span>Author: <b>Alexander Mikulich</b></span> <br>
-		<span>Scientific supervisor: <b>Lemeshevsky S. V."</b></span> <br>
-	</div>
-    <nav style="display: none;" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -58,7 +53,11 @@
     </nav>
 
     <div class="container">
-
+		<div class="container" style="font-size: 15px;"> 
+		<span>Topic: <b>Handwriting recognition </b> </span> <br>
+		<span>Author: <b>Alexander Mikulich</b></span> <br>
+		<span>Scientific supervisor: <b>Lemeshevsky S. V.</b></span> <br>
+		</div>
         <div class="row clearfix">
             <div class="col-md-3" align="center">
 				<div style="position: relative;">
@@ -80,34 +79,34 @@
 						<div class="col-md-7">
 							<table class="table">
 								<thead>
- 									<tr>
- 										<th>FNN</th>
-										<th style="display: none;">Trained FNN</th>
-										<th>CNN</th>
-										<th style="display: none;">TF CNN trained</th>
- 									</tr>
- 								</thead>
- 								<tbody>
- 									<tr>
- 										<td id="fnn1"> </td>
-										<td style="display: none;" id="fnn_t1"> </td>
- 										<td id="cnn1"> </td>
-										<td style="display: none; id="cnn_t1"> </td>
- 									</tr>
- 									<tr>
- 										<td id="fnn2"> </td>
-										<td style="display: none; id="fnn_t2"> </td>
- 										<td id="cnn2"> </td>
-										<td style="display: none; id="cnn_t2"> </td>
- 									</tr>
- 									<tr>
- 										<td id="fnn3"> </td>
-										<td style="display: none; id="fnn_t3"> </td>
- 										<td id="cnn3"> </td>
-										<td style="display: none; id="cnn_t3"> </td>
- 									</tr>
- 									
- 								</tbody>
+									<tr>
+										<th>FNN</th>
+										<th>Trained FNN</th>
+										<th>TF CNN</th>
+										<th>TF CNN trained</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td id="fnn1"> </td>
+										<td id="fnn_t1"> </td>
+										<td id="cnn1"> </td>
+										<td id="cnn_t1"> </td>
+									</tr>
+									<tr>
+										<td id="fnn2"> </td>
+										<td id="fnn_t2"> </td>
+										<td id="cnn2"> </td>
+										<td id="cnn_t2"> </td>
+									</tr>
+									<tr>
+										<td id="fnn3"> </td>
+										<td id="fnn_t3"> </td>
+										<td id="cnn3"> </td>
+										<td id="cnn_t3"> </td>
+									</tr>
+									
+								</tbody>
 							</table>
 						</div>
 					</div>
@@ -142,7 +141,7 @@
 
         <hr>
 
-        <div style="display: none;" class="row">
+        <div class="row">
             <div class="col-md-4">
                 <h2>About the app</h2>
                 <p>This app can recognize handwritten digits. Draw a digit on the canvas above and press the "Recognize" button to see a prediction. Press the "Clear" button to clear the canvas and draw a digit again. "Show more information" button reveals detailed predictions by all models.</p>
@@ -190,7 +189,7 @@
         </div>
 
         <footer>
-            <div style="display: none;" class="row">
+            <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; <a href="https://github.com/Erlemar/digit-draw-recognize">Github</a></p>
                 </div>
