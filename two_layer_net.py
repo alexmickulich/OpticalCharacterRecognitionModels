@@ -142,4 +142,4 @@ class FNN(object):
 		y_pred = np.argmax(exp_scores)
 		top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
 		"""
-		return self.params['W2']
+		return 'ffdfds'
