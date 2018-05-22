@@ -154,7 +154,7 @@ class Model(object):
 
 			top_3_cnn_original = net_original.predict(img_array, weights='original')
 
-		return {'answer': top_3_cnn_original, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
+		return {'answer': 'fff', 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
 	def train(self, image, digit):
 		"""
