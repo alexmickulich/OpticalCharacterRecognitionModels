@@ -155,18 +155,17 @@ class Model(object):
 		img_array = self.process_image(image)
 		if img_array is None:
 			return "Can't predict, when nothing is drawn"
-		net = FNN(self.params)
+		net = FNN(self.params_original)
 		net_original = FNN(self.params_original)
 		cnn = CNN()
 		cnn_original = CNN()
 		
-		top_3 = net.predict_single(img_array)
+
 		top_3_original = net_original.predict_single(img_array)
-		top_3_cnn = cnn.predict(img_array, weights='updated')
 		top_3_cnn_original = cnn_original.predict(img_array, weights='original')
-		answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original = self.select_answer(top_3, top_3_original, top_3_cnn, top_3_cnn_original)
+		answer = self.select_answer(top_3_original, top_3_original, top_3_cnn_original, top_3_cnn_original)
 		
-		answers_dict = {'answer': str(answer), 'fnn_t': top_3, 'fnn': top_3_original, 'cnn_t': top_3_cnn, 'cnn': top_3_cnn_original}
+		answers_dict = {'answer': str(answer), 'fnn_t': top_3_original, 'fnn': top_3_original, 'cnn_t': top_3_cnn_original, 'cnn': top_3_cnn_original}
 		#return answer, top_3, top_3_original
 		return answers_dict
 		
