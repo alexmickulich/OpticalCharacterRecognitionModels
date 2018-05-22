@@ -150,15 +150,13 @@ class Model(object):
 		if img_array is None:
 			return "Can't predict, when nothing is drawn"
 
-
-			l1 = img_array.dot(self.params_original['W1']) + self.params_original['b1']
-
-			l1[l1 < 0] = 0
-			l2 = l1.dot(self.params_original['W2']) + self.params_original['b2']
-			exp_scores = np.exp(l2)
-			probs = exp_scores / np.sum(exp_scores)
-			y_pred = np.argmax(exp_scores)
-			top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
+		l1 = img_array.dot(self.params_original['W1']) + self.params_original['b1']
+		l1[l1 < 0] = 0
+		l2 = l1.dot(self.params_original['W2']) + self.params_original['b2']
+		exp_scores = np.exp(l2)
+		probs = exp_scores / np.sum(exp_scores)
+		y_pred = np.argmax(exp_scores)
+		top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
 
 
 		answer = str(top_3[0][0])
