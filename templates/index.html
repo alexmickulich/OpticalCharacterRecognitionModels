@@ -23,10 +23,10 @@
 </head>
 
 <body>
-	<div class="container" style="font-size: 25px;"> 
-		<span>Topic: <b>Handwriting recognition </b> </span> 
-		<span>Author: <b>Alexander Mikulich</b></span>
-		<span>Scientific supervisor: <b>Lemeshevsky S. V."</b></span>
+	<div class="container" style="font-size: 15px;"> 
+		<span>Topic: <b>Handwriting recognition </b> </span> <br>
+		<span>Author: <b>Alexander Mikulich</b></span> <br>
+		<span>Scientific supervisor: <b>Lemeshevsky S. V."</b></span> <br>
 	</div>
     <nav style="display: none;" role="navigation">
         <div class="container">
@@ -80,26 +80,34 @@
 						<div class="col-md-7">
 							<table class="table">
 								<thead>
-									<tr>
-										<th>FNN</th>
+ 									<tr>
+ 										<th>FNN</th>
+										<th style="display: none;">Trained FNN</th>
 										<th>CNN</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td id="fnn1"> </td>
-										<td id="cnn1"> </td>
-									</tr>
-									<tr>
-										<td id="fnn2"> </td>
-										<td id="cnn2"> </td>
-									</tr>
-									<tr>
-										<td id="fnn3"> </td>
-										<td id="cnn3"> </td>
-									</tr>
-									
-								</tbody>
+										<th style="display: none;">TF CNN trained</th>
+ 									</tr>
+ 								</thead>
+ 								<tbody>
+ 									<tr>
+ 										<td id="fnn1"> </td>
+										<td style="display: none;" id="fnn_t1"> </td>
+ 										<td id="cnn1"> </td>
+										<td style="display: none; id="cnn_t1"> </td>
+ 									</tr>
+ 									<tr>
+ 										<td id="fnn2"> </td>
+										<td style="display: none; id="fnn_t2"> </td>
+ 										<td id="cnn2"> </td>
+										<td style="display: none; id="cnn_t2"> </td>
+ 									</tr>
+ 									<tr>
+ 										<td id="fnn3"> </td>
+										<td style="display: none; id="fnn_t3"> </td>
+ 										<td id="cnn3"> </td>
+										<td style="display: none; id="cnn_t3"> </td>
+ 									</tr>
+ 									
+ 								</tbody>
 							</table>
 						</div>
 					</div>
