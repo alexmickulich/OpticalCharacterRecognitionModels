@@ -145,29 +145,7 @@ class Model(object):
 		return ('Image saved successfully with the name {0}'.format(filename))
 	
 	def predict(self, image):
-		"""
-		Predicting image. If nothing is drawn, returns a message; otherwise 4 models are initialized and they make predictions.
-		They return a list of tuples with 3 top predictions and their probabilities. These lists are sent to "select_answer"
-		method to select the best answer. Also tuples are converted into strings for easier processing in JS. The answer and
-		lists with predictions and probabilities are returned.
-		"""
-	
-		img_array = self.process_image(image)
-		if img_array is None:
-			return "Can't predict, when nothing is drawn"
-		net = FNN(self.params_original)
-		net_original = FNN(self.params_original)
-		cnn = CNN()
-		cnn_original = CNN()
-		
-
-		top_3_original = net_original.predict_single(img_array)
-		top_3_cnn_original = cnn_original.predict(img_array, weights='original')
-		answer = self.select_answer(top_3_original, top_3_original, top_3_cnn_original, top_3_cnn_original)
-		
-		answers_dict = {'answer': 7, 'fnn_t': 1, 'fnn': 2, 'cnn_t': 3, 'cnn': 4}
-		#return answer, top_3, top_3_original
-		return answers_dict
+		return {'answer': "7", 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
 	def train(self, image, digit):
 		"""
