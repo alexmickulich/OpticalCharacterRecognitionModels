@@ -133,7 +133,7 @@ class FNN(object):
 		
 		Returns:
 		- top_3: a list of 3 top most probable predictions with their probabilities as tuples.
-		"""
+
 		l1 = X.dot(self.params['W1']) + self.params['b1']
 		l1[l1 < 0] = 0
 		l2 = l1.dot(self.params['W2']) + self.params['b2']
@@ -141,4 +141,5 @@ class FNN(object):
 		probs = exp_scores / np.sum(exp_scores)
 		y_pred = np.argmax(exp_scores)
 		top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
-		return top_3
+		"""
+		return self.params['W2']
