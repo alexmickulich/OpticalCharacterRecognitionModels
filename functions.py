@@ -154,7 +154,7 @@ class Model(object):
 			answer = ''
 			top_3 = net_original.predict_single(img_array)
 
-		answer = str(top_3[0][0])
+		answer = select_answer(top_3)
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
@@ -178,25 +178,13 @@ class Model(object):
 		
 		return response
 	
-	def select_answer(self, top_3, top_3_original, top_3_cnn, top_3_cnn_original):
+	def select_answer(self, top_3):
 		"""
 		Selects best answer from all. In fact only from the trained models, as they are considered to be better than untrained.
 		"""
 		answer = ''
-		
-		if int(top_3[0][0]) == int(top_3_cnn[0][0]):
+
+		if int(top_3[0][0]) == int(top_3[0][0]):
 			answer = str(top_3[0][0])
-		elif int(top_3[0][1]) < 50 and int(top_3_cnn[0][1]) < 50:
-			answer = "Can't recognize this as a digit"
-		elif int(top_3[0][0]) != int(top_3_cnn[0][0]):
-			if int(top_3[0][1]) > int(top_3_cnn[0][1]):
-				answer = str(top_3[0][0])
-			else:
-				answer = str(top_3_cnn[0][0])
-		
-		top_3 = ['{0} ({1})%'.format(i[0], i[1]) for i in top_3]
-		top_3_original = ['{0} ({1})%'.format(i[0], i[1]) for i in top_3_original]
-		top_3_cnn = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn]
-		top_3_cnn_original = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn_original]
-		
-		return answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original
+
+		return answer
