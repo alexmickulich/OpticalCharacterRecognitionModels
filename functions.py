@@ -154,7 +154,7 @@ class Model(object):
 			answer = ''
 			top_3 = net_original.predict_single(img_array)
 
-		answer = self.select_answer(top_3)
+		answer = top_3
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
