@@ -160,8 +160,14 @@ class Model(object):
 
 
 		answer = str(top_3[0][0])
+		top_3_original = top_3
+		top_3_cnn = top_3
+		top_3_cnn_original =top_3
 
-		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
+		answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original = self.select_answer( top_3, top_3_original, top_3_cnn, top_3_cnn_original)
+		answers_dict = {'answer': str(answer), 'fnn_t': top_3, 'fnn': top_3_original, 'cnn_t': top_3_cnn, 'cnn': top_3_cnn_original}
+
+		return answers_dict
 		
 	def train(self, image, digit):
 		"""
@@ -182,14 +188,26 @@ class Model(object):
 		response = self.save_weights_amazon('data-all_2_updated.chkp.data-00000-of-00001', './tmp/data-all_2_updated.chkp')
 		
 		return response
-	
-	def select_answer(self, top_3):
+
+	def select_answer(self, top_3, top_3_original, top_3_cnn, top_3_cnn_original):
 		"""
 		Selects best answer from all. In fact only from the trained models, as they are considered to be better than untrained.
 		"""
 		answer = ''
 
-		if int(top_3[0][0]) == int(top_3[0][0]):
+		if int(top_3[0][0]) == int(top_3_cnn[0][0]):
 			answer = str(top_3[0][0])
+		elif int(top_3[0][1]) < 50 and int(top_3_cnn[0][1]) < 50:
+			answer = "Can't recognize this as a digit"
+		elif int(top_3[0][0]) != int(top_3_cnn[0][0]):
+			if int(top_3[0][1]) > int(top_3_cnn[0][1]):
+				answer = str(top_3[0][0])
+			else:
+				answer = str(top_3_cnn[0][0])
 
-		return answer
+		top_3 = ['{0} ({1})%'.format(i[0], i[1]) for i in top_3]
+		top_3_original = ['{0} ({1})%'.format(i[0], i[1]) for i in top_3_original]
+		top_3_cnn = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn]
+		top_3_cnn_original = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn_original]
+
+		return answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original
