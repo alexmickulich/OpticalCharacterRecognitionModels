@@ -145,7 +145,7 @@ class Model(object):
 		return ('Image saved successfully with the name {0}'.format(filename))
 	
 	def predict(self, image):
-		"""
+
 		img_array = self.process_image(image)
 		if img_array is None:
 			return "Can't predict, when nothing is drawn"
@@ -153,9 +153,9 @@ class Model(object):
 			net_original = FNN(self.params_original)
 			answer = ''
 			top_3 = net_original.predict_single(img_array)
-		"""
+
 		answer = str(self.params_original['W1'])
-		
+
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
 	def train(self, image, digit):
