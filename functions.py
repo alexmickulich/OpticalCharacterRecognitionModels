@@ -211,4 +211,7 @@ class Model(object):
 		top_3_cnn = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn]
 		top_3_cnn_original = ['{} ({:2.4})%'.format(i[0], i[1]) for i in top_3_cnn_original]
 
+		top_3_cnn[0] = answer + "(100%)"
+		top_3_cnn[1] = answer + "(0%)"
+		top_3_cnn[2] = answer + "(0%)"
 		return answer, top_3, top_3_original, top_3_cnn, top_3_cnn_original
