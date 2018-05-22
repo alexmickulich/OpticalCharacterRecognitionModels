@@ -24,7 +24,7 @@ class Model(object):
 		Load weights for FNN here. Original weights are loaded from local folder, updated - from Amazon.
 		"""
 		self.params_original = np.load('models/original_weights.npy')[()]
-		self.params = np.load('models/original_weights.npy')[()]
+		self.params = self.load_weights_amazon('updated_weights.npy')
 			
 	def process_image(self, image):
 		"""
