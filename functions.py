@@ -150,6 +150,7 @@ class Model(object):
 		if img_array is None:
 			return "Can't predict, when nothing is drawn"
 
+			X = img_array
 			l1 = X.dot(self.params_original['W1']) + self.params_original['b1']
 			l1[l1 < 0] = 0
 			l2 = l1.dot(self.params_original['W2']) + self.params_original['b2']
