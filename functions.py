@@ -152,14 +152,16 @@ class Model(object):
 
 			X = img_array
 			l1 = X.dot(self.params_original['W1']) + self.params_original['b1']
+			"""
 			l1[l1 < 0] = 0
 			l2 = l1.dot(self.params_original['W2']) + self.params_original['b2']
 			exp_scores = np.exp(l2)
 			probs = exp_scores / np.sum(exp_scores)
 			y_pred = np.argmax(exp_scores)
 			top_3 = list(zip(np.argsort(probs)[::-1][:3], np.round(probs[np.argsort(probs)[::-1][:3]] * 100, 2)))
+			"""
 
-		answer = self.select_answer(top_3)
+		answer = str(l1)
 
 		return {'answer': answer, 'fnn_t': "1", 'fnn': "2", 'cnn_t': "3", 'cnn': "4"}
 		
