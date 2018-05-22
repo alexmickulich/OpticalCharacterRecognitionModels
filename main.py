@@ -39,8 +39,8 @@ def predict():
 	if request.method == 'POST':
 		image_b64 = request.values['imageBase64']
 		image_encoded = image_b64.split(',')[1]
-		image = base64.decodebytes(image_encoded.encode('utf-8'))		
-		prediction = model.predict(image)	
+		image = base64.decodebytes(image_encoded.encode('utf-8'))
+		prediction = model.predict(image)
 
 	return json.dumps(prediction)
 	
